@@ -12,6 +12,7 @@ import DGCharts
 class OverviewViewController: UIViewController {
     
     @IBOutlet weak var pieChartView: PieChartView!
+    
     @IBOutlet weak var recentTranjectionTabel: UITableView!
     {
         didSet {
@@ -82,7 +83,7 @@ extension OverviewViewController : UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return recentTranjectionTabel.bounds.height / 5
+        return recentTranjectionTabel.bounds.height / 3
     }
     
 }

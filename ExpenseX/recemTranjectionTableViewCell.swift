@@ -12,6 +12,7 @@ class recemTranjectionTableViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var money: UILabel!
     @IBOutlet weak var imageSymble: UIImageView!
+    @IBOutlet weak var dateAndTime: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
