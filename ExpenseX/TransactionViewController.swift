@@ -47,7 +47,7 @@ class TransactionViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var barChartView1: BarChartView!
     @IBOutlet weak var barChartView2: BarChartView!
     
-
+    
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var IncomeView: UIView!
@@ -57,6 +57,12 @@ class TransactionViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var incomeLabel: UILabel!
     @IBOutlet weak var expanseLabel: UILabel!
+    
+    let transactionManager = TransactionManager()
+    
+    var transactionArray: [TransactionModel] = []
+    var incomeArray: [TransactionModel] = []
+    var expenseArray: [TransactionModel] = []
     
     
     override func viewDidLoad() {
@@ -73,6 +79,40 @@ class TransactionViewController: UIViewController, ChartViewDelegate {
         setData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        incomeArray.removeAll()
+        expenseArray.removeAll()
+        
+        transactionArray = transactionManager.getAllTransactions() ?? []
+        
+        if  !transactionArray.isEmpty {
+            
+            for transaction in transactionArray {
+                
+                if transaction.Finance == "income" {
+                    
+                    incomeArray.append(transaction)
+                    
+                }
+                else {
+                    
+                    expenseArray.append(transaction)
+                    
+                }
+                
+            }
+            
+        }
+        
+        DispatchQueue.main.async {
+            
+            self.incomeTabel.reloadData()
+            self.expanseTabel.reloadData()
+            self.setData()
+        }
+        
+    }
     
     @IBAction func incomeButton(_ sender: Any) {
         
@@ -96,7 +136,7 @@ class TransactionViewController: UIViewController, ChartViewDelegate {
                 self.view1.transform = .identity  // Slide view1 into position
                 self.IncomeView.transform  = .identity
                 self.view2.transform = CGAffineTransform(translationX: self.view2.frame.width, y: 0)  // Slide view2 out to the right
-               // self.ExpanseView.transform = CGAffineTransform(translationX: , y: <#T##CGFloat#>)
+                // self.ExpanseView.transform = CGAffineTransform(translationX: , y: <#T##CGFloat#>)
             })
         }
         
@@ -108,7 +148,7 @@ class TransactionViewController: UIViewController, ChartViewDelegate {
             
             view1.isHidden = true
             view2.isHidden = false
-           
+            
             
             incomeLabel.textColor = .lightGray
             expanseLabel.textColor = .white
@@ -154,6 +194,9 @@ class TransactionViewController: UIViewController, ChartViewDelegate {
         // Hide right axis
         barChartView1.rightAxis.enabled = false
         
+        barChartView1.legend.verticalAlignment = .top
+        barChartView1.legend.horizontalAlignment = .right
+        
         
         // Change text color to white
         barChartView1.xAxis.labelTextColor = .white
@@ -183,6 +226,10 @@ class TransactionViewController: UIViewController, ChartViewDelegate {
         barChartView2.rightAxis.enabled = false
         
         
+        
+        barChartView2.legend.verticalAlignment = .top
+        barChartView2.legend.horizontalAlignment = .right
+        
         // Change text color to white
         barChartView2.xAxis.labelTextColor = .white
         barChartView2.leftAxis.labelTextColor = .white
@@ -191,8 +238,33 @@ class TransactionViewController: UIViewController, ChartViewDelegate {
     }
     
     private func setData() {
-        let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-        let values: [Double] = [220, 920, 650, 1140, 1280, 1220, 170]  // Example values
+        
+        var days: [String] = []
+        var values: [Double] = []  // Example values
+
+        days.removeAll()
+        values.removeAll()
+
+        let latestEntries = incomeArray.suffix(7) // Get the latest 7 entries (or fewer if not available)
+
+        if latestEntries.count == 7 {
+            for entry in latestEntries {
+                days.append(formatDateToString2(date: entry.date ?? Date()))
+                values.append(entry.amount ?? 0.0)
+            }
+        } else {
+            let missingCount = 7 - latestEntries.count
+            for entry in latestEntries {
+                days.append(formatDateToString2(date: entry.date ?? Date()))
+                values.append(entry.amount ?? 0.0)
+            }
+            // Append "N/A" and 0.0 for the missing days
+            for _ in 0..<missingCount {
+                days.append("N/A")
+                values.append(0.0)
+            }
+        }
+        
         
         var dataEntries: [BarChartDataEntry] = []
         
@@ -201,7 +273,7 @@ class TransactionViewController: UIViewController, ChartViewDelegate {
             dataEntries.append(entry)
         }
         
-        let dataSet = BarChartDataSet(entries: dataEntries, label: "Transactions")
+        let dataSet = BarChartDataSet(entries: dataEntries, label: "Income")
         dataSet.colors = ChartColorTemplates.joyful()
         dataSet.valueTextColor = .white
         dataSet.valueFont = .systemFont(ofSize: 12)
@@ -212,9 +284,32 @@ class TransactionViewController: UIViewController, ChartViewDelegate {
         // Set custom x-axis labels
         barChartView1.xAxis.valueFormatter = IndexAxisValueFormatter(values: days)
         
+        var days1: [String] = []
+        var values1: [Double] = []  // Example values
+
+        days1.removeAll()
+        values1.removeAll()
+
+        let latestEntries1 = expenseArray.suffix(7) // Get the latest 7 entries (or fewer if not available)
+
+        if latestEntries1.count == 7 {
+            for entry in latestEntries1 {
+                days1.append(formatDateToString2(date: entry.date ?? Date()))
+                values1.append(entry.amount ?? 0.0)
+            }
+        } else {
+            let missingCount = 7 - latestEntries1.count
+            for entry in latestEntries1 {
+                days1.append(formatDateToString2(date: entry.date ?? Date()))
+                values1.append(entry.amount ?? 0.0)
+            }
+            // Append "N/A" and 0.0 for the missing days
+            for _ in 0..<missingCount {
+                days1.append("N/A")
+                values1.append(0.0)
+            }
+        }
         
-        let days1 = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-        let values1: [Double] = [320, 92, 250, 110, 180, 220, 470]  // Example  values
         
         var dataEntries1: [BarChartDataEntry] = []
         
@@ -235,6 +330,24 @@ class TransactionViewController: UIViewController, ChartViewDelegate {
         barChartView2.xAxis.valueFormatter = IndexAxisValueFormatter(values: days1)
         
     }
+    
+    @IBAction func incomeAddbutton(_ sender: Any) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "addViewController") as? addViewController else {return}
+        vc.PageNAmeValue = "Add Income"
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: false)
+    }
+    
+    @IBAction func expanseAddbuton(_ sender: Any) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "addViewController") as? addViewController else {return}
+        vc.PageNAmeValue = "Add Expense"
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: false)
+    }
+    
+    
 }
 
 extension TransactionViewController : UITableViewDelegate
@@ -247,11 +360,11 @@ extension TransactionViewController : UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == incomeTabel {
             
-            return 14
+            return incomeArray.count
         }
         else if tableView == expanseTabel {
             
-            return 8
+            return expenseArray.count
         }
         return .zero
     }
@@ -262,37 +375,20 @@ extension TransactionViewController : UITableViewDataSource
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "recemTranjectionTableViewCell") as?  recemTranjectionTableViewCell else {
                 return UITableViewCell()
             }
-            if indexPath.row % 2 == 0 {
-                
-                cell.imageSymble.image = UIImage(resource: .increase)
-                cell.money.text = "+ $ 2000000"
-                cell.name.text = "Payment"
-            }
-            else
-            {
-                cell.imageSymble.image = UIImage(resource: .increase)
-                cell.money.text = "+ $ 40000"
-                cell.name.text = "Tuition"
-            }
+            cell.name.text = incomeArray[indexPath.row].sourceType
+            cell.money.text = "$ \(String(incomeArray[indexPath.row].amount ?? 0.0))"
+            cell.dateAndTime.text = formatDateToString(date: incomeArray[indexPath.row].date ?? Date())
+            cell.imageSymble.image = UIImage(resource: .increase)
             return cell
         }
         else if tableView == expanseTabel {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "recemTranjectionTableViewCell") as?  recemTranjectionTableViewCell else {
                 return UITableViewCell()
             }
-            if indexPath.row % 2 == 0 {
-                
-                cell.imageSymble.image = UIImage(resource: .decrease)
-                cell.money.text = "- $ 2000000"
-                cell.name.text = "bill"
-            }
-            else
-            {
-                cell.imageSymble.image = UIImage(resource: .decrease)
-                cell.money.text = "- $ 40000"
-                cell.name.text = "books"
-            }
-            
+            cell.name.text = expenseArray[indexPath.row].sourceType
+            cell.money.text = "$ \(String(expenseArray[indexPath.row].amount ?? 0.0))"
+            cell.dateAndTime.text = formatDateToString(date: expenseArray[indexPath.row].date ?? Date())
+            cell.imageSymble.image = UIImage(resource: .decrease)
             return cell
         }
         return UITableViewCell()
@@ -301,5 +397,20 @@ extension TransactionViewController : UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height / 3
     }
+    
+    func formatDateToString(date: Date, format: String = "yyyy-MM-dd HH:mm:ss") -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        dateFormatter.timeZone = TimeZone.current
+        return dateFormatter.string(from: date)
+    }
+    
+    func formatDateToString2(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM" // Only day and short month
+        return formatter.string(from: date).uppercased()
+    }
+
+
     
 }
