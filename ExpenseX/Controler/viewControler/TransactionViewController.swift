@@ -375,6 +375,9 @@ extension TransactionViewController : UITableViewDelegate
             
             guard let vc = self.storyboard?.instantiateViewController(identifier: "popUpViewController") as? popUpViewController else {return}
             vc.transectionData = expenseArray[indexPath.row]
+            vc.reloadCompletion_ = {
+                self.setUpTabel()
+            }
             let nav = UINavigationController(rootViewController: vc)
             nav.modalPresentationStyle = .overCurrentContext
             self.present(nav, animated: true)

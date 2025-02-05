@@ -29,10 +29,22 @@ class addViewController: UIViewController {
         
         PageName.text = PageNAmeValue ?? ""
         
+    
+        
         amountTextFild.delegate = self
         SourceNametextFild.delegate = self
-        setPlaceholderColor(for: amountTextFild, placeholderText: "Total Amount")
-        setPlaceholderColor(for: SourceNametextFild, placeholderText: "Source Type")
+
+        if let transectionData = transectionData {
+            
+            setPlaceholderColor(for: amountTextFild, placeholderText: String(transectionData.amount ?? 0.0))
+            setPlaceholderColor(for: SourceNametextFild, placeholderText: transectionData.sourceType ?? "")
+        }
+        else
+        {
+            setPlaceholderColor(for: amountTextFild, placeholderText: "Total Amount")
+            setPlaceholderColor(for: SourceNametextFild, placeholderText: "Source Type")
+        }
+        
         
     }
     
@@ -55,6 +67,7 @@ class addViewController: UIViewController {
             let transaction = TransactionModel(id:UUID(),amount:amount,sourceType: SourceNametextFild.text,Finance: "income",date: datePicker.date)
         
             transactionManager.addTransaction(transaction)
+            self.navigationController?.dismiss(animated: true)
         }
         else  if PageNAmeValue == "Add Expense"
         {
@@ -63,6 +76,9 @@ class addViewController: UIViewController {
             let transaction = TransactionModel(id:UUID(),amount:amount,sourceType: SourceNametextFild.text,Finance: "expense",date: datePicker.date)
         
             transactionManager.addTransaction(transaction)
+            self.navigationController?.dismiss(animated: true)
+            
+            
         }
         else if PageNAmeValue == "Edit Transaction"
         {
@@ -80,8 +96,34 @@ class addViewController: UIViewController {
                  }
             }
         }
+        else if PageNAmeValue == "Remove Transaction"
+        {
+            if let transectionData = transectionData
+            {
+                let alertController = UIAlertController(title: "Are you sure?", message: "You want to delete this transaction", preferredStyle: .alert)
+                let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+                    
+                    if self.transactionManager.removeTransaction(by: transectionData.id)
+                    {
+                        print("Transaction Deleted")
+                        self.reloadCompletion?()
+                        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+                    }
+                }
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+                {
+                    (_) in
+                    self.reloadCompletion?()
+                    self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+                    
+                }
+                alertController.addAction(deleteAction)
+                alertController.addAction(cancelAction)
+                self.present(alertController, animated: true)
+            }
+        }
         
-        self.navigationController?.dismiss(animated: true)
+       //
     }
 }
 

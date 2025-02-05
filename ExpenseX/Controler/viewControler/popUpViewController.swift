@@ -43,6 +43,24 @@ class popUpViewController: UIViewController {
     
     @IBAction func removeButton(_ sender: Any) {
         
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "addViewController") as? addViewController else {return}
+        vc.PageNAmeValue = "Remove Transaction"
+        vc.transectionData = self.transectionData
+        vc.reloadCompletion = { [weak self] in
+            self?.reloadCompletion_?()
+        }
+        
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: true)
+
+        
+    }
+    
+    @IBAction func cancelButton(_ sender: Any) {
+        
+        self.navigationController?.dismiss(animated: true)
+        
     }
     
 }
