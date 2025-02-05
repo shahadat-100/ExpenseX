@@ -8,32 +8,55 @@
 
 /* Begin PBXBuildFile section */
 		EF6A4F242D4E7B8F00350DF4 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = EF6A4F232D4E7B8F00350DF4 /* DGCharts */; };
+		EFCA21962D533CF20005280F /* cdtransactionExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA217C2D533CF20005280F /* cdtransactionExtention.swift */; };
+		EFCA21972D533CF20005280F /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA217D2D533CF20005280F /* PersistentStorage.swift */; };
+		EFCA21982D533CF20005280F /* TransactiomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA217E2D533CF20005280F /* TransactiomModel.swift */; };
+		EFCA21992D533CF20005280F /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA217F2D533CF20005280F /* Transaction+CoreDataClass.swift */; };
+		EFCA219A2D533CF20005280F /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA21802D533CF20005280F /* Transaction+CoreDataProperties.swift */; };
+		EFCA219B2D533CF20005280F /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA21812D533CF20005280F /* TransactionManager.swift */; };
+		EFCA219C2D533CF20005280F /* TransactionRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA21822D533CF20005280F /* TransactionRepo.swift */; };
+		EFCA219D2D533CF20005280F /* addViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA21842D533CF20005280F /* addViewController.swift */; };
+		EFCA219E2D533CF20005280F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA21852D533CF20005280F /* AppDelegate.swift */; };
+		EFCA219F2D533CF20005280F /* ExpenseX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFCA21872D533CF20005280F /* ExpenseX.xcdatamodeld */; };
+		EFCA21A02D533CF20005280F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA218B2D533CF20005280F /* LoginViewController.swift */; };
+		EFCA21A12D533CF20005280F /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA218E2D533CF20005280F /* OverviewViewController.swift */; };
+		EFCA21A22D533CF20005280F /* recemTranjectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA218F2D533CF20005280F /* recemTranjectionTableViewCell.swift */; };
+		EFCA21A32D533CF20005280F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA21912D533CF20005280F /* SceneDelegate.swift */; };
+		EFCA21A42D533CF20005280F /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA21922D533CF20005280F /* TransactionViewController.swift */; };
+		EFCA21A52D533CF20005280F /* WellComeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA21932D533CF20005280F /* WellComeViewController.swift */; };
+		EFCA21A62D533CF20005280F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFCA21862D533CF20005280F /* Assets.xcassets */; };
+		EFCA21A82D533CF20005280F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFCA218A2D533CF20005280F /* LaunchScreen.storyboard */; };
+		EFCA21A92D533CF20005280F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFCA218D2D533CF20005280F /* Main.storyboard */; };
+		EFCA21AA2D533CF20005280F /* recemTranjectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFCA21902D533CF20005280F /* recemTranjectionTableViewCell.xib */; };
+		EFCA220C2D533EF90005280F /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFCA220B2D533EF90005280F /* IQKeyboardManagerSwift */; };
+		EFCA220E2D534B730005280F /* popUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA220D2D534B730005280F /* popUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EF5633922D4D48FE006A9689 /* ExpenseX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpenseX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFCA217C2D533CF20005280F /* cdtransactionExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cdtransactionExtention.swift; sourceTree = "<group>"; };
+		EFCA217D2D533CF20005280F /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
+		EFCA217E2D533CF20005280F /* TransactiomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactiomModel.swift; sourceTree = "<group>"; };
+		EFCA217F2D533CF20005280F /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EFCA21802D533CF20005280F /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EFCA21812D533CF20005280F /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
+		EFCA21822D533CF20005280F /* TransactionRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepo.swift; sourceTree = "<group>"; };
+		EFCA21842D533CF20005280F /* addViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addViewController.swift; sourceTree = "<group>"; };
+		EFCA21852D533CF20005280F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EFCA21862D533CF20005280F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EFCA21882D533CF20005280F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFCA21892D533CF20005280F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EFCA218B2D533CF20005280F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EFCA218C2D533CF20005280F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EFCA218E2D533CF20005280F /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
+		EFCA218F2D533CF20005280F /* recemTranjectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recemTranjectionTableViewCell.swift; sourceTree = "<group>"; };
+		EFCA21902D533CF20005280F /* recemTranjectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = recemTranjectionTableViewCell.xib; sourceTree = "<group>"; };
+		EFCA21912D533CF20005280F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EFCA21922D533CF20005280F /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		EFCA21932D533CF20005280F /* WellComeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WellComeViewController.swift; sourceTree = "<group>"; };
+		EFCA21952D533CF20005280F /* ExpenseX.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExpenseX.xcdatamodel; sourceTree = "<group>"; };
+		EFCA220D2D534B730005280F /* popUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		EF5633A72D4D48FF006A9689 /* Exceptions for "ExpenseX" folder in "ExpenseX" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = EF5633912D4D48FE006A9689 /* ExpenseX */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		EF5633942D4D48FE006A9689 /* ExpenseX */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				EF5633A72D4D48FF006A9689 /* Exceptions for "ExpenseX" folder in "ExpenseX" target */,
-			);
-			path = ExpenseX;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EF56338F2D4D48FE006A9689 /* Frameworks */ = {
@@ -41,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF6A4F242D4E7B8F00350DF4 /* DGCharts in Frameworks */,
+				EFCA220C2D533EF90005280F /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,7 +74,7 @@
 		EF5633892D4D48FE006A9689 = {
 			isa = PBXGroup;
 			children = (
-				EF5633942D4D48FE006A9689 /* ExpenseX */,
+				EFCA21942D533CF20005280F /* ExpenseX */,
 				EF5633932D4D48FE006A9689 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,6 +85,179 @@
 				EF5633922D4D48FE006A9689 /* ExpenseX.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EFCA21832D533CF20005280F /* System */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA21BB2D533E790005280F /* resourse */,
+				EFCA21B52D533DE40005280F /* Delegates */,
+				EFCA21B42D533DD40005280F /* persistentStorage */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		EFCA21942D533CF20005280F /* ExpenseX */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA21AE2D533D250005280F /* Controler */,
+				EFCA21AD2D533D1D0005280F /* Model */,
+				EFCA21AC2D533D150005280F /* View */,
+				EFCA21AB2D533D000005280F /* CoreData */,
+				EFCA21832D533CF20005280F /* System */,
+				EFCA21882D533CF20005280F /* Info.plist */,
+			);
+			path = ExpenseX;
+			sourceTree = "<group>";
+		};
+		EFCA21AB2D533D000005280F /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA21872D533CF20005280F /* ExpenseX.xcdatamodeld */,
+				EFCA21B22D533D7C0005280F /* coreDataManager */,
+				EFCA21B12D533D720005280F /* coreDataRepository */,
+				EFCA21B02D533D660005280F /* coreDataExtention */,
+				EFCA21AF2D533D5A0005280F /* coreDataSupporFile */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		EFCA21AC2D533D150005280F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA21BA2D533E4E0005280F /* lounchView */,
+				EFCA21B92D533E450005280F /* mainView */,
+				EFCA21B82D533E300005280F /* customXIBview */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EFCA21AD2D533D1D0005280F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA21B32D533DB40005280F /* transectionModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EFCA21AE2D533D250005280F /* Controler */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA21B72D533E140005280F /* customXIBControler */,
+				EFCA21B62D533DFA0005280F /* viewControler */,
+			);
+			path = Controler;
+			sourceTree = "<group>";
+		};
+		EFCA21AF2D533D5A0005280F /* coreDataSupporFile */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA21802D533CF20005280F /* Transaction+CoreDataProperties.swift */,
+				EFCA217F2D533CF20005280F /* Transaction+CoreDataClass.swift */,
+			);
+			path = coreDataSupporFile;
+			sourceTree = "<group>";
+		};
+		EFCA21B02D533D660005280F /* coreDataExtention */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA217C2D533CF20005280F /* cdtransactionExtention.swift */,
+			);
+			path = coreDataExtention;
+			sourceTree = "<group>";
+		};
+		EFCA21B12D533D720005280F /* coreDataRepository */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA21822D533CF20005280F /* TransactionRepo.swift */,
+			);
+			path = coreDataRepository;
+			sourceTree = "<group>";
+		};
+		EFCA21B22D533D7C0005280F /* coreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA21812D533CF20005280F /* TransactionManager.swift */,
+			);
+			path = coreDataManager;
+			sourceTree = "<group>";
+		};
+		EFCA21B32D533DB40005280F /* transectionModel */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA217E2D533CF20005280F /* TransactiomModel.swift */,
+			);
+			path = transectionModel;
+			sourceTree = "<group>";
+		};
+		EFCA21B42D533DD40005280F /* persistentStorage */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA217D2D533CF20005280F /* PersistentStorage.swift */,
+			);
+			path = persistentStorage;
+			sourceTree = "<group>";
+		};
+		EFCA21B52D533DE40005280F /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA21912D533CF20005280F /* SceneDelegate.swift */,
+				EFCA21852D533CF20005280F /* AppDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		EFCA21B62D533DFA0005280F /* viewControler */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA21842D533CF20005280F /* addViewController.swift */,
+				EFCA21932D533CF20005280F /* WellComeViewController.swift */,
+				EFCA21922D533CF20005280F /* TransactionViewController.swift */,
+				EFCA218E2D533CF20005280F /* OverviewViewController.swift */,
+				EFCA218B2D533CF20005280F /* LoginViewController.swift */,
+				EFCA220D2D534B730005280F /* popUpViewController.swift */,
+			);
+			path = viewControler;
+			sourceTree = "<group>";
+		};
+		EFCA21B72D533E140005280F /* customXIBControler */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA218F2D533CF20005280F /* recemTranjectionTableViewCell.swift */,
+			);
+			path = customXIBControler;
+			sourceTree = "<group>";
+		};
+		EFCA21B82D533E300005280F /* customXIBview */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA21902D533CF20005280F /* recemTranjectionTableViewCell.xib */,
+			);
+			path = customXIBview;
+			sourceTree = "<group>";
+		};
+		EFCA21B92D533E450005280F /* mainView */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA218D2D533CF20005280F /* Main.storyboard */,
+			);
+			path = mainView;
+			sourceTree = "<group>";
+		};
+		EFCA21BA2D533E4E0005280F /* lounchView */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA218A2D533CF20005280F /* LaunchScreen.storyboard */,
+			);
+			path = lounchView;
+			sourceTree = "<group>";
+		};
+		EFCA21BB2D533E790005280F /* resourse */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA21862D533CF20005280F /* Assets.xcassets */,
+			);
+			path = resourse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,12 +275,10 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				EF5633942D4D48FE006A9689 /* ExpenseX */,
-			);
 			name = ExpenseX;
 			packageProductDependencies = (
 				EF6A4F232D4E7B8F00350DF4 /* DGCharts */,
+				EFCA220B2D533EF90005280F /* IQKeyboardManagerSwift */,
 			);
 			productName = ExpenseX;
 			productReference = EF5633922D4D48FE006A9689 /* ExpenseX.app */;
@@ -115,6 +310,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				EF6A4F222D4E7B8F00350DF4 /* XCRemoteSwiftPackageReference "Charts" */,
+				EFCA220A2D533EF90005280F /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EF5633932D4D48FE006A9689 /* Products */;
@@ -131,6 +327,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFCA21A62D533CF20005280F /* Assets.xcassets in Resources */,
+				EFCA21A82D533CF20005280F /* LaunchScreen.storyboard in Resources */,
+				EFCA21A92D533CF20005280F /* Main.storyboard in Resources */,
+				EFCA21AA2D533CF20005280F /* recemTranjectionTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +341,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFCA220E2D534B730005280F /* popUpViewController.swift in Sources */,
+				EFCA21962D533CF20005280F /* cdtransactionExtention.swift in Sources */,
+				EFCA21972D533CF20005280F /* PersistentStorage.swift in Sources */,
+				EFCA21982D533CF20005280F /* TransactiomModel.swift in Sources */,
+				EFCA21992D533CF20005280F /* Transaction+CoreDataClass.swift in Sources */,
+				EFCA219A2D533CF20005280F /* Transaction+CoreDataProperties.swift in Sources */,
+				EFCA219B2D533CF20005280F /* TransactionManager.swift in Sources */,
+				EFCA219C2D533CF20005280F /* TransactionRepo.swift in Sources */,
+				EFCA219D2D533CF20005280F /* addViewController.swift in Sources */,
+				EFCA219E2D533CF20005280F /* AppDelegate.swift in Sources */,
+				EFCA219F2D533CF20005280F /* ExpenseX.xcdatamodeld in Sources */,
+				EFCA21A02D533CF20005280F /* LoginViewController.swift in Sources */,
+				EFCA21A12D533CF20005280F /* OverviewViewController.swift in Sources */,
+				EFCA21A22D533CF20005280F /* recemTranjectionTableViewCell.swift in Sources */,
+				EFCA21A32D533CF20005280F /* SceneDelegate.swift in Sources */,
+				EFCA21A42D533CF20005280F /* TransactionViewController.swift in Sources */,
+				EFCA21A52D533CF20005280F /* WellComeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EFCA218A2D533CF20005280F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFCA21892D533CF20005280F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EFCA218D2D533CF20005280F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFCA218C2D533CF20005280F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EF5633A92D4D48FF006A9689 /* Debug */ = {
@@ -352,6 +588,14 @@
 				minimumVersion = 5.1.0;
 			};
 		};
+		EFCA220A2D533EF90005280F /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -360,7 +604,25 @@
 			package = EF6A4F222D4E7B8F00350DF4 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = DGCharts;
 		};
+		EFCA220B2D533EF90005280F /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFCA220A2D533EF90005280F /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		EFCA21872D533CF20005280F /* ExpenseX.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EFCA21952D533CF20005280F /* ExpenseX.xcdatamodel */,
+			);
+			currentVersion = EFCA21952D533CF20005280F /* ExpenseX.xcdatamodel */;
+			path = ExpenseX.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EF56338A2D4D48FE006A9689 /* Project object */;
 }

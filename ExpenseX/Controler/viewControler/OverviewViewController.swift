@@ -57,7 +57,7 @@ class OverviewViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        nameLabel.text = "👤 " + (userDefaults.string(forKey: "userName") ?? "User")
+        nameLabel.text = /* "👤 " + */ (userDefaults.string(forKey: "userName") ?? "User")
         
         total_Amount = 0.0
         income_Amount = 0.0

@@ -18,6 +18,10 @@ class addViewController: UIViewController {
     
     var PageNAmeValue:String?
     let transactionManager = TransactionManager()
+    var transectionData : TransactionModel?
+    
+    var reloadCompletion: (() -> Void)?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +29,8 @@ class addViewController: UIViewController {
         
         PageName.text = PageNAmeValue ?? ""
         
+        amountTextFild.delegate = self
+        SourceNametextFild.delegate = self
         setPlaceholderColor(for: amountTextFild, placeholderText: "Total Amount")
         setPlaceholderColor(for: SourceNametextFild, placeholderText: "Source Type")
         
@@ -38,6 +44,9 @@ class addViewController: UIViewController {
         )
     }
     @IBAction func goBack(_ sender: Any) {
+        
+        amountTextFild.resignFirstResponder()
+        SourceNametextFild.resignFirstResponder()
         
         if PageNAmeValue == "Add Income"
         {
@@ -55,7 +64,41 @@ class addViewController: UIViewController {
         
             transactionManager.addTransaction(transaction)
         }
+        else if PageNAmeValue == "Edit Transaction"
+        {
+            if let transectionData = transectionData
+            {
+                let amount = Double(amountTextFild.text ?? "0") ?? 0
+                let transaction = TransactionModel(id:transectionData.id,amount:amount,sourceType: SourceNametextFild.text,Finance:transectionData.Finance,date: transectionData.date)
+               
+                 if transactionManager.updateTransaction(transaction)
+                 {
+                     print("Transaction Updated")
+                     reloadCompletion?()
+                     self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+
+                 }
+            }
+        }
         
         self.navigationController?.dismiss(animated: true)
+    }
+}
+
+
+extension addViewController:UITextFieldDelegate
+{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField == amountTextFild
+        {
+            SourceNametextFild.becomeFirstResponder()
+        }
+        else if textField == SourceNametextFild
+        {
+            SourceNametextFild.resignFirstResponder()
+        }
+        
+        return true
     }
 }

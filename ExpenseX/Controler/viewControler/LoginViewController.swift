@@ -20,6 +20,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        nameTextFild.delegate = self
+        amountTextFild.delegate = self
+        SourceNametextFild.delegate = self
         // Set the placeholder text and color for all text fields
         setPlaceholderColor(for: nameTextFild, placeholderText: "Your Name")
         setPlaceholderColor(for: amountTextFild, placeholderText: "Total Amount")
@@ -55,3 +58,22 @@ class LoginViewController: UIViewController {
 }
 
 
+extension LoginViewController:UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField == nameTextFild
+        {
+            amountTextFild.becomeFirstResponder()
+        }
+        else if textField == amountTextFild
+        {
+            SourceNametextFild.becomeFirstResponder()
+        }
+        else if textField == SourceNametextFild
+        {
+            SourceNametextFild.resignFirstResponder()
+        }
+        return true
+    }
+}

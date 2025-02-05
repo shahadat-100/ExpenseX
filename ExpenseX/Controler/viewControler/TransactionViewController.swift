@@ -81,36 +81,9 @@ class TransactionViewController: UIViewController, ChartViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        incomeArray.removeAll()
-        expenseArray.removeAll()
+        setUpTabel()
         
-        transactionArray = transactionManager.getAllTransactions() ?? []
-        
-        if  !transactionArray.isEmpty {
-            
-            for transaction in transactionArray {
-                
-                if transaction.Finance == "income" {
-                    
-                    incomeArray.append(transaction)
-                    
-                }
-                else {
-                    
-                    expenseArray.append(transaction)
-                    
-                }
-                
-            }
-            
-        }
-        
-        DispatchQueue.main.async {
-            
-            self.incomeTabel.reloadData()
-            self.expanseTabel.reloadData()
-            self.setData()
-        }
+       
         
     }
     
@@ -170,6 +143,39 @@ class TransactionViewController: UIViewController, ChartViewDelegate {
     }
     
     
+    private func setUpTabel()
+    {
+        incomeArray.removeAll()
+        expenseArray.removeAll()
+        
+        transactionArray = transactionManager.getAllTransactions() ?? []
+        
+        if  !transactionArray.isEmpty {
+            
+            for transaction in transactionArray {
+                
+                if transaction.Finance == "income" {
+                    
+                    incomeArray.append(transaction)
+                    
+                }
+                else {
+                    
+                    expenseArray.append(transaction)
+                    
+                }
+                
+            }
+            
+        }
+        
+        DispatchQueue.main.async {
+            
+            self.incomeTabel.reloadData()
+            self.expanseTabel.reloadData()
+            self.setData()
+        }
+    }
     
     
     private func setupBarChart() {
@@ -352,7 +358,30 @@ class TransactionViewController: UIViewController, ChartViewDelegate {
 
 extension TransactionViewController : UITableViewDelegate
 {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if tableView == incomeTabel {
+            
+            guard let vc = self.storyboard?.instantiateViewController(identifier: "popUpViewController") as? popUpViewController else {return}
+            vc.transectionData = incomeArray[indexPath.row]
+            vc.reloadCompletion_ = {
+                self.setUpTabel()
+            }
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .overCurrentContext
+            self.present(nav, animated: true)
+        }
+        else if tableView == expanseTabel {
+            
+            guard let vc = self.storyboard?.instantiateViewController(identifier: "popUpViewController") as? popUpViewController else {return}
+            vc.transectionData = expenseArray[indexPath.row]
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .overCurrentContext
+            self.present(nav, animated: true)
+        }
+        
+        
+    }
 }
 
 extension TransactionViewController : UITableViewDataSource
@@ -412,5 +441,42 @@ extension TransactionViewController : UITableViewDataSource
     }
 
 
+//    public func reloadData()
+//    {
+//        print("reload")
+//        incomeArray.removeAll()
+//        expenseArray.removeAll()
+//        
+//        transactionArray = transactionManager.getAllTransactions() ?? []
+//        
+//        if  !transactionArray.isEmpty {
+//            
+//            for transaction in transactionArray {
+//                
+//                if transaction.Finance == "income" {
+//                    
+//                    incomeArray.append(transaction)
+//                    
+//                }
+//                else {
+//                    
+//                    expenseArray.append(transaction)
+//                    
+//                }
+//                
+//            }
+//            
+//        }
+//        
+//        DispatchQueue.main.async {
+//            
+//            self.incomeTabel.reloadData()
+//            self.expanseTabel.reloadData()
+//            self.setData()
+//        }
+//        
+//
+//    }
+    
     
 }
