@@ -8,7 +8,7 @@
 import UIKit
 
 class addViewController: UIViewController {
-
+    
     
     
     @IBOutlet weak var PageName:UILabel!
@@ -25,15 +25,15 @@ class addViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         PageName.text = PageNAmeValue ?? ""
         
-    
+        
         
         amountTextFild.delegate = self
         SourceNametextFild.delegate = self
-
+        
         if let transectionData = transectionData {
             
             setPlaceholderColor(for: amountTextFild, placeholderText: String(transectionData.amount ?? 0.0))
@@ -65,7 +65,7 @@ class addViewController: UIViewController {
             let amount = Double(amountTextFild.text ?? "0") ?? 0
             
             let transaction = TransactionModel(id:UUID(),amount:amount,sourceType: SourceNametextFild.text,Finance: "income",date: datePicker.date)
-        
+            
             transactionManager.addTransaction(transaction)
             self.navigationController?.dismiss(animated: true)
         }
@@ -74,7 +74,7 @@ class addViewController: UIViewController {
             let amount = Double(amountTextFild.text ?? "0") ?? 0
             
             let transaction = TransactionModel(id:UUID(),amount:amount,sourceType: SourceNametextFild.text,Finance: "expense",date: datePicker.date)
-        
+            
             transactionManager.addTransaction(transaction)
             self.navigationController?.dismiss(animated: true)
             
@@ -84,16 +84,37 @@ class addViewController: UIViewController {
         {
             if let transectionData = transectionData
             {
-                let amount = Double(amountTextFild.text ?? "0") ?? 0
-                let transaction = TransactionModel(id:transectionData.id,amount:amount,sourceType: SourceNametextFild.text,Finance:transectionData.Finance,date: transectionData.date)
-               
-                 if transactionManager.updateTransaction(transaction)
-                 {
-                     print("Transaction Updated")
-                     reloadCompletion?()
-                     self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
-
-                 }
+                let amount:Double!
+                let sourceType:String!
+                
+                if let text = amountTextFild.text, !text.trimmingCharacters(in: .whitespaces).isEmpty {
+                    
+                    amount = Double(text)
+                    
+                } else {
+                    
+                    amount = transectionData.amount ?? 0
+                }
+                
+                if let text = SourceNametextFild.text, !text.trimmingCharacters(in: .whitespaces).isEmpty {
+                    
+                    sourceType = text
+                    
+                } else {
+                    
+                    sourceType = transectionData.sourceType ?? ""
+                }
+                
+                
+                let transaction = TransactionModel(id:transectionData.id,amount:amount,sourceType: sourceType,Finance:transectionData.Finance,date: transectionData.date)
+                
+                if transactionManager.updateTransaction(transaction)
+                {
+                    print("Transaction Updated")
+                    reloadCompletion?()
+                    self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+                    
+                }
             }
         }
         else if PageNAmeValue == "Remove Transaction"
@@ -123,7 +144,7 @@ class addViewController: UIViewController {
             }
         }
         
-       //
+        //
     }
 }
 

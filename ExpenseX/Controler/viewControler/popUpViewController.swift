@@ -28,7 +28,7 @@ class popUpViewController: UIViewController {
     
     @IBAction func editButton(_ sender: Any) {
         
-       
+        print("tapped")
         guard let vc = self.storyboard?.instantiateViewController(identifier: "addViewController") as? addViewController else {return}
         vc.PageNAmeValue = "Edit Transaction"
         vc.transectionData = self.transectionData
